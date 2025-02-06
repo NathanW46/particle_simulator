@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(particle_simulation)
+project(Particle_Simulation)
 
 
 set(CMAKE_CXX_STANDART 17)
@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(SOURCES
     src/main.cpp
     src/simulation.cpp
-    src/particle.cpp
+    src/Particle.cpp
     src/physics.cpp
     src/renderer.cpp
 )
@@ -20,5 +20,6 @@ add_executable(particle_sim ${SOURCES})
 
 
 #libraries 
-#find_package(SFML 2.5 COMPONENTS graphic window system REQUIRED)
-#target_link_libraries(particle_simulator sfml-graphics sfml-window sfml-system)
+#set(SFML_DIR "/usr/lib/cmake/SFML")
+find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+target_link_libraries(particle_sim PRIVATE sfml-graphics sfml-window sfml-system)

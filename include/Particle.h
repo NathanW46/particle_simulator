@@ -1,12 +1,12 @@
 #ifndef PARTICLE_H
 #define PARTICLE_H
 
-
+#include <utility>
 #include <iostream>
 
 
 
-class particle {
+class Particle {
     private:
 	float x, y;
 	float vx, vy;
@@ -14,12 +14,13 @@ class particle {
 
     public:
 	
-	particle(float x, float y, float vx, float vy, float ax, float ay);
+	Particle(float x, float y, float vx, float vy, float ax, float ay);
 
 	void update(float dt);
 
 	void print_pos() const;
 
+	std::pair<float, float> get_pos() const;
 };
 
 #endif
