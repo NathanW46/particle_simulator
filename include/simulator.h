@@ -5,6 +5,10 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include "renderer.h"
+#include "physics.h"
+#include "particle.h"
+#include "config.h"
 
 class Simulator {
 
@@ -22,6 +26,5 @@ public:
     void run();
 
 };
-
 
 #endif

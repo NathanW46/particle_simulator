@@ -2,14 +2,14 @@ cmake_minimum_required(VERSION 3.12)
 project(Particle_Simulation)
 
 
-set(CMAKE_CXX_STANDART 17)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 
 set(SOURCES
     src/main.cpp
-    src/simulation.cpp
-    src/Particle.cpp
+    src/simulator.cpp
+    src/particle.cpp
     src/physics.cpp
     src/renderer.cpp
     src/config.cpp

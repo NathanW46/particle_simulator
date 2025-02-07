@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include "Particle.h"
+#include "particle.h"
 #include <SFML/Graphics.hpp>
 
 
@@ -30,16 +30,20 @@ void Particle::print_pos() const{
     std::cout << "Current Position (x,y) = (" << x << ", " << y << ")\n";
 }
 
-void Particle::add_a(sf::Vector2f a) {
-    ax += a.x;
-    ay += a.y;
+void Particle::add_a(float a_x, float a_y) {
+    ax += a_x;
+    ay += a_y;
 }
 
 
-std::pair<float, float> Particle::get_pos() const {
+sf::Vector2f Particle::get_pos() const {
     return {x, y};
 }
 
 float Particle::get_mass() const {
     return m;
+}
+
+sf::Color Particle::get_color() const {
+    return c;
 }

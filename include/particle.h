@@ -22,11 +22,12 @@ class Particle {
 
 	void print_pos() const;
 	
-	void add_a(sf::Vector2f a);
+	void add_a(float a_x, float a_y);
 
 	//getters
-	std::pair<float, float> get_pos() const;
-	float get_mas() const;
+	sf::Vector2f get_pos() const;
+	float get_mass() const;
+	sf::Color get_color() const;
 };
 
 #endif

@@ -2,14 +2,15 @@
 #define CONFIG_H
 
 
-namespace Config { 
-    extern const float GRAVITY;
-    extern const float GRAVITATIONAL_CONST;
-    extern const float TIME_STEP:
-    extern const int WINDOW_WIDTH;
-    extern const int WINDOW_HEIGHT;
-    extern const float G_SOFTENING;
-}
+class Config { 
+public: 
+    static const float GRAVITY;
+    static const float GRAVITATIONAL_CONST;
+    static const float TIME_STEP;
+    static const int WINDOW_WIDTH;
+    static const int WINDOW_HEIGHT;
+    static const float G_SOFTENING;
+};
 
 
 #endif

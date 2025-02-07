@@ -4,7 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "Particle.h"
+#include "particle.h"
 #include <cmath>
 
 class Renderer {
@@ -14,7 +14,7 @@ private:
 
 public:
     Renderer(sf::RenderWindow& window);
-    void draw(const std::vector<Particles>& particles);
+    void draw(const std::vector<Particle>& particles);
 };
 
 
