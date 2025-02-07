@@ -12,6 +12,7 @@ set(SOURCES
     src/Particle.cpp
     src/physics.cpp
     src/renderer.cpp
+    src/config.cpp
 )
 
 include_directories(include)

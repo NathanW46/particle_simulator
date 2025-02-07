@@ -1,15 +1,11 @@
 #include <vector>
 #include <chrono>
 #include "Particle.h"
+#include "Config.h"
 #include <SFML/Graphics.hpp>
 
 
-// window dimensions
-const int WINDOW_WIDTH = 1200;
-const int WINDOW_HEIGHT = 900;
 
-// 60 FPS
-const float TIME_STEP = 1.0f/ 60.0f;
 
 
 
@@ -19,18 +15,20 @@ int main() {
     std::vector<Particle> particles;
     
     for (int i = 0; i<100; i++) {
-        float x = std::rand() % WINDOW_WIDTH;
-        float y = std::rand() % WINDOW_HEIGHT;
+        float x = std::rand() % Config::WINDOW_WIDTH;
+        float y = std::rand() % Config::WINDOW_HEIGHT;
         float vx = (std::rand() % 200 - 100);
         float vy = (std::rand() % 200 - 100);
-        float ax = 0;
-        float ay = 1000; 
-        particles.emplace_back(x, y, vx, vy, ax, ay);
+        float ax = 0.0f;
+        float ay = 0.0f; 
+        float m = 0.0f;
+        sf::Color c = sf::Color((std::rand()%256), (std::rand()%256), (std::rand()%256));
+        particles.emplace_back(x, y, vx, vy, ax, ay, m, c);
     }
 
     //window creation 
     sf::RenderWindow window(
-        sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Particle Simulator");
+        sf::VideoMode(Config::WINDOW_WIDTH, Config::WINDOW_HEIGHT), "Particle Simulator");
 
     // Timer for fixed frame rate
     sf::Clock clock;
@@ -52,10 +50,10 @@ int main() {
         accumulatedTime += frameTime;
 
         //update at fixed intervals
-        while (accumulatedTime >= TIME_STEP) {
+        while (accumulatedTime >= Config::TIME_STEP) {
             for (Particle &p : particles)
-                p.update(TIME_STEP);
-            accumulatedTime -= TIME_STEP;
+                p.update(Config::TIME_STEP);
+            accumulatedTime -= Config::TIME_STEP;
         }
         
         //render particles
