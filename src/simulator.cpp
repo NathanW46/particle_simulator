@@ -13,7 +13,7 @@ Simulator::Simulator(int numParticles)
         float vy = 0; // (std::rand() % 200 - 100);
         float ax = 0.0f;
         float ay = 0.0f; 
-        float m = 49.0f;
+        float m = std::power((std::rand() % (9-2) + 2), 2);
         sf::Color c = sf::Color((std::rand()%256), (std::rand()%256), (std::rand()%256));
         particles.emplace_back(x, y, vx, vy, ax, ay, m, c);
     }

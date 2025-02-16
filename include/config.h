@@ -10,6 +10,7 @@ public:
     static const int WINDOW_WIDTH;
     static const int WINDOW_HEIGHT;
     static const float G_SOFTENING;
+    static const float MIN_PDIST_BUFF;
 };
 
 
