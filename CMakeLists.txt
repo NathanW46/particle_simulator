@@ -1,26 +1,18 @@
-cmake_minimum_required(VERSION 3.12)
-project(Particle_Simulation)
-
+cmake_minimum_required(VERSION 3.10)
+project(Particle_Simulator LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+file(GLOB SOURCES "src/*.cpp")
+
+add_executable(Particle_Simulator ${SOURCES})
+
+# SFML 3.0
+find_package(SFML 3.0 REQUIRED COMPONENTS Graphics Window System)
+
+target_include_directories(Particle_Simulator PRIVATE ${PROJECT_SOURCE_DIR}/include)
+target_link_libraries(Particle_Simulator PRIVATE SFML::Graphics SFML::Window SFML::System)
 
 
-set(SOURCES
-    src/main.cpp
-    src/simulator.cpp
-    src/particle.cpp
-    src/physics.cpp
-    src/renderer.cpp
-    src/config.cpp
-)
 
-include_directories(include)
-
-add_executable(particle_sim ${SOURCES})
-
-
-#libraries 
-#set(SFML_DIR "/usr/lib/cmake/SFML")
-find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
-target_link_libraries(particle_sim PRIVATE sfml-graphics sfml-window sfml-system)
